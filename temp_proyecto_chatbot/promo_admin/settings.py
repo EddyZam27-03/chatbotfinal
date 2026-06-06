@@ -7,6 +7,10 @@ Autor: Maykel
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+# Cargar variables de entorno desde .env
+load_dotenv()
 
 # =========================================
 # RUTA BASE DEL PROYECTO
@@ -17,8 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # =========================================
 # CONFIGURACIONES BÁSICAS
 # =========================================
-SECRET_KEY = 'django-insecure-$2y1o0!cu^o-w+r*lw#6mmcak))&ma$z6u5$r!!-4v60fht8=4'
-DEBUG = True
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-solo-desarrollo')
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = ['*']
 
 
@@ -35,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Apps del proyecto
-    'chatbot',   # 🤖 App principal del chatbot
     'pages',     # 🧭 App de las páginas base del sitio
     'documents', # 📄 Gestión de documentos (subida desde admin)
 ]
@@ -70,7 +73,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'pages/templates/pages',  # ✅ ruta exacta donde está base.html
-            BASE_DIR / 'chatbot/templates',      # 🤖 plantillas del chatbot
             BASE_DIR / 'templates',              # 🌍 opcional global
         ],
         'APP_DIRS': True,
@@ -142,7 +144,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # ARCHIVOS DE USUARIO (SUBIDAS)
 # =========================================
 MEDIA_URL = "/data/"
-MEDIA_ROOT = BASE_DIR / "data"
+# Apunta a la carpeta de PDFs del backend FastAPI para que ambos sistemas compartan los mismos documentos
+MEDIA_ROOT = Path("/home/valhalla/Descargas/Chat (3)/backend/data")
 
 
 # =========================================
