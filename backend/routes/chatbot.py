@@ -37,7 +37,7 @@ from utils.file_handler import (
     update_record,
 )
 from utils.pagination import filter_by_field, paginate, search_in_fields, sort_items
-from utils.pdf_reader import search_in_pdfs
+from utils.vector_store import semantic_search, index_directory
 from utils.uuid_helper import generate_uuid
 
 router = APIRouter(tags=["Chatbot"])
@@ -73,8 +73,8 @@ def chatbot_query(body: ChatbotQuery):
     4. Retorna la respuesta generada por el LLM
     """
     try:
-        # Buscar contexto relevante en los PDFs
-        relevant_contexts = search_in_pdfs(body.query, PDFS_DIRECTORY, max_results=5)
+        # Buscar contexto relevante en los PDFs usando búsqueda semántica
+        relevant_contexts = semantic_search(body.query, max_results=5)
         
         # Construir el contexto para el prompt
         context_text = ""
@@ -89,14 +89,19 @@ def chatbot_query(body: ChatbotQuery):
         if context_text:
             user_message = f"Contexto de documentos oficiales:\n{context_text}\n\nPregunta: {body.query}"
         
+        # Construir mensajes con historial (máximo últimos 10 mensajes)
+        messages_to_send = [{"role": "system", "content": SYSTEM_PROMPT}]
+        
+        for msg in body.history[-10:]:
+            messages_to_send.append({"role": msg.role, "content": msg.content})
+        
+        messages_to_send.append({"role": "user", "content": user_message})
+        
         response = requests.post(
             OLLAMA_API_URL,
             json={
                 "model": OLLAMA_MODEL,
-                "messages": [
-                    {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": user_message}
-                ],
+                "messages": messages_to_send,
                 "stream": False
             },
             timeout=120
@@ -127,9 +132,26 @@ def chatbot_query(body: ChatbotQuery):
             detail="Timeout al conectar con Ollama. Verifica que el servicio esté corriendo."
         )
     except requests.exceptions.ConnectionError:
+        # Ollama no está disponible — buscar en knowledge base local como fallback
+        items = read_json(settings.FILE_CHATBOT)
+        query_lower = body.query.lower()
+        for item in items:
+            if item.get("activo") and any(
+                kw.lower() in query_lower for kw in item.get("keywords", [])
+            ):
+                return {
+                    "success": True,
+                    "data": {
+                        "respuesta": item["respuesta"],
+                        "fuente": "knowledge_base_fallback",
+                        "confianza": 0.7,
+                        "categoria": item.get("categoria"),
+                        "contexto_usado": False,
+                    },
+                }
         raise HTTPException(
             status_code=503,
-            detail="No se pudo conectar con Ollama. Verifica que el servicio esté corriendo en http://127.0.0.1:11434"
+            detail="El servicio de IA no está disponible en este momento. Por favor intenta más tarde.",
         )
     except Exception as e:
         raise HTTPException(
@@ -234,3 +256,20 @@ def admin_eliminar_conocimiento(
 
     delete_record(settings.FILE_CHATBOT, item_id)
     return {"success": True, "message": "Entrada de chatbot eliminada correctamente."}
+
+
+@router.post("/admin/chatbot/reindex", summary="[Admin] Re-indexar PDFs en ChromaDB")
+def admin_reindexar_pdfs(
+    current_user: Annotated[dict, Depends(get_current_user)],
+):
+    """
+    Re-indexa todos los PDFs de backend/data/ en ChromaDB.
+    Ejecutar después de subir nuevos PDFs desde el admin de Django.
+    """
+    results = index_directory(PDFS_DIRECTORY)
+    total = sum(results.values())
+    return {
+        "success": True,
+        "message": f"Re-indexación completa. {total} chunks en {len(results)} archivos.",
+        "data": results,
+    }

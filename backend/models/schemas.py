@@ -258,8 +258,15 @@ class DocumentoOut(BaseModel):
 #  CHATBOT
 # ═══════════════════════════════════════════════════════════
 
+class ChatbotMessage(BaseModel):
+    """Un mensaje del historial de conversación."""
+    role: str = Field(..., pattern="^(user|assistant)$")
+    content: str = Field(..., min_length=1)
+
+
 class ChatbotQuery(BaseModel):
     query: str = Field(..., min_length=1, max_length=500, description="Pregunta del usuario")
+    history: List["ChatbotMessage"] = Field(default=[], description="Historial de mensajes previos")
 
 
 class ChatbotKnowledgeCreate(BaseModel):

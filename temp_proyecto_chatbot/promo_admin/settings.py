@@ -144,8 +144,10 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # ARCHIVOS DE USUARIO (SUBIDAS)
 # =========================================
 MEDIA_URL = "/data/"
-# Apunta a la carpeta de PDFs del backend FastAPI para que ambos sistemas compartan los mismos documentos
-MEDIA_ROOT = Path("/home/valhalla/Descargas/Chat (3)/backend/data")
+# BASE_DIR = temp_proyecto_chatbot/
+# BASE_DIR.parent = raíz del repo
+# BASE_DIR.parent / "backend" / "data" = carpeta compartida con FastAPI
+MEDIA_ROOT = BASE_DIR.parent / "backend" / "data"
 
 
 # =========================================

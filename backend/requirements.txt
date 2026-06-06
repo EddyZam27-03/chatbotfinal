@@ -8,3 +8,5 @@ python-dotenv==1.0.1
 Pillow==10.3.0
 requests==2.31.0
 pypdf==4.0.1
+sentence-transformers==3.0.1
+chromadb==0.5.3

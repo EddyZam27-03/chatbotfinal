@@ -26,6 +26,7 @@ export function ChatbotWidget() {
   const [isTyping, setIsTyping] = useState(false);
   const [showScrollButton, setShowScrollButton] =
     useState(false);
+  const [history, setHistory] = useState<{ role: string; content: string }[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -75,7 +76,7 @@ export function ChatbotWidget() {
 
   const generateBotResponse = async (query: string): Promise<string> => {
     try {
-      const response = await chatbotService.query(query);
+      const response = await chatbotService.query(query, history);
       return response.respuesta;
     } catch (error) {
       console.error('Error al consultar chatbot:', error);
@@ -107,6 +108,13 @@ export function ChatbotWidget() {
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, botMessage]);
+      
+      // Actualizar historial después de cada intercambio exitoso
+      setHistory((prev) => [
+        ...prev,
+        { role: 'user', content: messageText },
+        { role: 'assistant', content: botResponse },
+      ]);
     } catch (error) {
       console.error('Error al enviar mensaje:', error);
       const errorMessage: Message = {

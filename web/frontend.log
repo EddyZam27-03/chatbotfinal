@@ -11,3 +11,13 @@
 13:06:30 [vite] (client) hmr update /src/app/components/chatbot/ChatbotWidget.tsx, /src/styles/index.css
 13:10:05 [vite] (client) hmr update /src/app/components/chatbot/ChatbotWidget.tsx, /src/styles/index.css
 13:30:23 [vite] (client) hmr update /src/app/components/chatbot/ChatbotWidget.tsx, /src/styles/index.css
+18:31:39 [vite] (client) hmr update /src/app/components/pages/ChatbotPage.tsx, /src/styles/index.css
+18:31:45 [vite] (client) hmr update /src/app/components/pages/ChatbotPage.tsx, /src/styles/index.css
+18:31:56 [vite] (client) hmr update /src/app/components/pages/ChatbotPage.tsx, /src/styles/index.css
+18:32:32 [vite] (client) hmr update /src/styles/index.css, /src/app/components/chatbot/ChatbotWidget.tsx, /src/app/components/pages/ChatbotPage.tsx
+18:32:56 [vite] (client) hmr update /src/app/components/chatbot/ChatbotWidget.tsx, /src/styles/index.css
+18:33:09 [vite] (client) hmr update /src/app/components/chatbot/ChatbotWidget.tsx, /src/styles/index.css
+18:33:27 [vite] (client) hmr update /src/app/components/chatbot/ChatbotWidget.tsx, /src/styles/index.css
+18:33:50 [vite] (client) hmr update /src/app/components/pages/ChatbotPage.tsx, /src/styles/index.css
+18:34:10 [vite] (client) hmr update /src/app/components/pages/ChatbotPage.tsx, /src/styles/index.css
+18:34:34 [vite] (client) hmr update /src/app/components/pages/ChatbotPage.tsx, /src/styles/index.css

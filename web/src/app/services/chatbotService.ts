@@ -40,13 +40,16 @@ export interface ApiResponse<T> {
 // Servicio de Chatbot
 export const chatbotService = {
   // Consultar al chatbot
-  async query(query: string): Promise<ChatbotQueryResponse> {
+  async query(
+    query: string,
+    history: { role: string; content: string }[] = []
+  ): Promise<ChatbotQueryResponse> {
     const response = await fetch(ENDPOINTS.CHATBOT_QUERY, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify({ query, history }),
     });
 
     if (!response.ok) {

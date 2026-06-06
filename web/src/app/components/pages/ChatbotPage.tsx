@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Send, Bot, ChevronDown } from 'lucide-react';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
-import { useDataStore } from '../../stores/dataStore';
+import { chatbotService } from '../../services/chatbotService';
 
 interface Message {
   id: string;
@@ -21,11 +21,11 @@ const SUGGESTIONS = [
 ];
 
 export function ChatbotPage() {
-  const { chatbotKnowledge } = useDataStore();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [showScrollButton, setShowScrollButton] = useState(false);
+  const [history, setHistory] = useState<{ role: string; content: string }[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -60,32 +60,19 @@ export function ChatbotPage() {
     }
   };
 
-  const generateBotResponse = (query: string): string => {
-    const q = query.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-
-    for (const item of chatbotKnowledge) {
-      const matched = item.keywords.some((kw) => {
-        const normalizedKw = kw.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-        return q.includes(normalizedKw);
-      });
-      if (matched) return item.response;
+  const generateBotResponse = async (query: string): Promise<string> => {
+    try {
+      const response = await chatbotService.query(query, history);
+      return response.respuesta;
+    } catch (error) {
+      console.error('Error al consultar chatbot:', error);
+      return 'Lo siento, hubo un error al procesar tu consulta. Por favor intenta nuevamente o contacta a soporte al +593 (05) 266-1844.';
     }
-
-    return `Gracias por tu pregunta. Puedo ayudarte con:
-
-- **Requisitos de ingreso**
-- **Malla curricular**
-- **Proceso de matrícula**
-- **Fechas importantes**
-- **Información de contacto**
-- **Becas y costos**
-
-Por favor reformula tu pregunta o elige una de las opciones de abajo. Para consultas específicas, también puedes contactarnos directamente al +593 (05) 266-1844.`;
   };
 
   const handleSendMessage = async (text?: string) => {
     const messageText = text || input.trim();
-    if (!messageText) return;
+    if (!messageText || isTyping) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -98,16 +85,34 @@ Por favor reformula tu pregunta o elige una de las opciones de abajo. Para consu
     setInput('');
     setIsTyping(true);
 
-    setTimeout(() => {
+    try {
+      const botResponse = await generateBotResponse(messageText);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'bot',
-        content: generateBotResponse(messageText),
+        content: botResponse,
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, botMessage]);
+      
+      // Actualizar historial después de cada intercambio exitoso
+      setHistory((prev) => [
+        ...prev,
+        { role: 'user', content: messageText },
+        { role: 'assistant', content: botResponse },
+      ]);
+    } catch (error) {
+      console.error('Error:', error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        type: 'bot',
+        content: 'Lo siento, hubo un error. Por favor intenta nuevamente.',
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
       setIsTyping(false);
-    }, 800 + Math.random() * 700);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {

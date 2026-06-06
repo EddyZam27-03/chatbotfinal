@@ -54,7 +54,7 @@ app.add_middleware(
     allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
-    allow_headers=["*"],
+    allow_headers=["Authorization", "Content-Type", "Accept"],
 )
 
 # ─── Archivos estáticos (uploads) ─────────────────────────────────────────────
@@ -123,6 +123,30 @@ async def internal_error_handler(request: Request, exc):
 
 
 # ─── Endpoints de sistema ──────────────────────────────────────────────────────
+
+@app.on_event("startup")
+async def startup_index_pdfs():
+    """Indexa PDFs al iniciar el servidor si la colección está vacía."""
+    import os
+    from utils.vector_store import index_directory, _get_collection
+
+    data_path = str(settings.DATA_PATH)
+    if not os.path.exists(data_path):
+        print("[STARTUP] Carpeta data/ no encontrada, omitiendo indexación")
+        return
+
+    try:
+        collection = _get_collection()
+        if collection.count() == 0:
+            print("[STARTUP] Indexando PDFs por primera vez...")
+            results = index_directory(data_path)
+            total = sum(results.values())
+            print(f"[STARTUP] Indexación completa: {total} chunks en {len(results)} archivos")
+        else:
+            print(f"[STARTUP] ChromaDB ya tiene {collection.count()} chunks, omitiendo re-indexación")
+    except Exception as e:
+        print(f"[STARTUP] Error en indexación: {e} — el chatbot usará fallback de keywords")
+
 
 @app.get("/", tags=["Health"], summary="Bienvenida")
 def root():
