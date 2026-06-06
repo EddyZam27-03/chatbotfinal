@@ -1,0 +1,86 @@
+[
+  {
+    "id": "7a4e124f-c8c6-4bb1-8c62-dbba8b2437cd",
+    "nombre": "Dr. Carlos Mendoza Zambrano",
+    "email": "carlos.mendoza@uleam.edu.ec",
+    "foto_url": null,
+    "materias": "Administración Estratégica, Gestión Empresarial",
+    "especialidad": "Administración Estratégica",
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.728742+00:00",
+    "updated_at": "2026-06-05T18:21:59.728746+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  },
+  {
+    "id": "47585e19-b6de-4614-923d-b789c7d5086e",
+    "nombre": "Mgs. Ana Lucía Torres Ponce",
+    "email": "ana.torres@uleam.edu.ec",
+    "foto_url": null,
+    "materias": "Contabilidad General, Finanzas Empresariales",
+    "especialidad": "Contabilidad y Finanzas",
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.728752+00:00",
+    "updated_at": "2026-06-05T18:21:59.728754+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  },
+  {
+    "id": "3fe80911-ebb7-4c6c-a649-b28ec125262c",
+    "nombre": "Ing. Roberto Cedeño Alcívar",
+    "email": "roberto.cedeno@uleam.edu.ec",
+    "foto_url": null,
+    "materias": "Marketing Digital, Investigación de Mercados",
+    "especialidad": "Marketing y Comercio",
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.728758+00:00",
+    "updated_at": "2026-06-05T18:21:59.728759+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  },
+  {
+    "id": "a56f27e4-26a1-469c-a670-172132820585",
+    "nombre": "Mgs. Patricia Vera Intriago",
+    "email": "patricia.vera@uleam.edu.ec",
+    "foto_url": null,
+    "materias": "Recursos Humanos, Comportamiento Organizacional",
+    "especialidad": "Gestión del Talento Humano",
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.728764+00:00",
+    "updated_at": "2026-06-05T18:21:59.728765+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  },
+  {
+    "id": "34574bb2-5f63-4980-b89c-793daefac744",
+    "nombre": "asadssas",
+    "email": "asasasas@g.com",
+    "foto_url": "uploads/docentes/34574bb2-5f63-4980-b89c-793daefac744jpeg",
+    "materias": "asasas",
+    "especialidad": "asas",
+    "activo": false,
+    "created_at": "2026-06-05T23:12:36.081927+00:00",
+    "updated_at": "2026-06-05T23:19:30.225722+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  },
+  {
+    "id": "7da02ca9-d5b6-443d-9dff-0faa56381c22",
+    "nombre": "asasas",
+    "email": "asas@gmail.com",
+    "foto_url": "uploads/docentes/7da02ca9-d5b6-443d-9dff-0faa56381c22jpeg",
+    "materias": "asasas",
+    "especialidad": "asasasas",
+    "activo": false,
+    "created_at": "2026-06-05T23:20:11.057932+00:00",
+    "updated_at": "2026-06-05T23:20:32.257994+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  },
+  {
+    "id": "d40acc6a-c361-40ba-ae9a-3a8ddd32320e",
+    "nombre": "asd",
+    "email": "asd@a.com",
+    "foto_url": "uploads/docentes/d40acc6a-c361-40ba-ae9a-3a8ddd32320ejpeg",
+    "materias": "qsa",
+    "especialidad": "asd",
+    "activo": true,
+    "created_at": "2026-06-06T00:09:23.217404+00:00",
+    "updated_at": "2026-06-06T00:09:39.475455+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  }
+]

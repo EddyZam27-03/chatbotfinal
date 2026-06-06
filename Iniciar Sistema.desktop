@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Iniciar ULEAM Chatbot
+Comment=Inicia el backend y frontend del sistema ULEAM Chatbot
+Exec=/home/valhalla/Descargas/Chat (3)/start.sh
+Icon=applications-system
+Terminal=true
+Categories=System;

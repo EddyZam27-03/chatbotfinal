@@ -1,0 +1,38 @@
+[
+  {
+    "id": "7c4c5ef3-1381-4f4c-8cdd-39f3b18086b7",
+    "titulo": "Inauguración de Nuevas Instalaciones en El Carmen",
+    "imagen_url": null,
+    "descripcion": "La ULEAM Extensión El Carmen celebró la inauguración de sus nuevas instalaciones académicas, que incluyen laboratorios equipados, aulas interactivas y espacios de estudio colaborativo para los estudiantes de la carrera de Administración de Empresas.",
+    "categoria": "Infraestructura",
+    "activo": true,
+    "fecha": "2026-03-15",
+    "created_at": "2026-06-05T18:21:59.728555+00:00",
+    "updated_at": "2026-06-05T18:21:59.728559+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  },
+  {
+    "id": "e5e59d84-08c8-4422-a7ad-e9c07b95f838",
+    "titulo": "Estudiantes ULEAM Ganan Concurso Nacional de Emprendimiento",
+    "imagen_url": null,
+    "descripcion": "Un equipo de cinco estudiantes de la carrera de Administración de Empresas representó a la ULEAM en el Concurso Nacional de Emprendimiento Universitario, obteniendo el primer lugar con su proyecto de agricultura sostenible para la zona tropical húmeda de Manabí.",
+    "categoria": "Logros Estudiantiles",
+    "activo": true,
+    "fecha": "2026-02-28",
+    "created_at": "2026-06-05T18:21:59.728566+00:00",
+    "updated_at": "2026-06-05T18:21:59.728568+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  },
+  {
+    "id": "8cb0e303-b5f2-4faa-b785-0546ef8bbefb",
+    "titulo": "Proceso de Admisión 2026 — Segunda Fase Abierta",
+    "imagen_url": "uploads/noticias/8cb0e303-b5f2-4faa-b785-0546ef8bbefbjpeg",
+    "descripcion": "La ULEAM Extensión El Carmen anuncia la apertura de la segunda fase del proceso de admisión para el ciclo académico 2026. Los aspirantes pueden presentar su documentación en secretaría hasta el 30 de junio. Se ofrecen 60 cupos para la carrera de Administración de Empresas.",
+    "categoria": "Académico",
+    "activo": true,
+    "fecha": "2026-06-01",
+    "created_at": "2026-06-05T18:21:59.728573+00:00",
+    "updated_at": "2026-06-06T00:09:59.610533+00:00",
+    "created_by": "62ea29ea-b377-425e-b934-8e52288ca4dc"
+  }
+]

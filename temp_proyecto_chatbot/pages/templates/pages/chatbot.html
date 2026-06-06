@@ -1,0 +1,153 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}Chatbot — ULEAM{% endblock %}
+
+{% block content %}
+
+<header class="chat-hero"></header>
+
+<div class="chat-title-strip text-center py-4">
+  <h1 class="chat-title-text">Asistente Académico — Administración</h1>
+</div>
+
+<section class="chat-content">
+  <div class="container">
+    <div class="row g-4">
+
+      <aside class="col-lg-3">
+        <div class="chat-sidebar p-3 shadow-sm border rounded bg-white">
+          <h5 class="fw-bold mb-3 chat-title text-danger">Historial</h5>
+          <div class="list-group small">
+            <a class="list-group-item list-group-item-action border-0 py-2">¿Qué materias tiene el primer semestre?</a>
+            <a class="list-group-item list-group-item-action border-0 py-2">¿Dónde ver la malla curricular?</a>
+            <a class="list-group-item list-group-item-action border-0 py-2">¿Cómo inscribirme?</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="col-lg-6">
+        <div class="chat-card shadow border-0 overflow-hidden">
+          <div class="card-body bg-white" style="min-height:450px; max-height: 450px; overflow-y: auto;" id="chat-container">
+            <div id="chatRoot">
+              <div class="mb-3 p-2 rounded" style="background-color: #f8f9fa; border-left: 4px solid #dc3545;">
+                <strong>Bot:</strong> <span>¡Hola! Puedes preguntar por requisitos, malla curricular, fechas o admisión.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer bg-white border-top-0 d-flex gap-2 p-3">
+            <input id="chatInput" class="form-control border-danger" placeholder="Escribe tu mensaje..." />
+            <button id="sendBtn" class="btn btn-danger px-4">
+              <i class="bi bi-send"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <aside class="col-lg-3">
+        <div class="chat-sidebar p-3 shadow-sm border rounded bg-white">
+          <h5 class="fw-bold mb-3 chat-title text-danger">Sugerencias</h5>
+          <div class="d-grid gap-2">
+            <button class="btn btn-suggest text-start py-2 px-3 border-danger-subtle" onclick="quickSearch('Requisitos de ingreso')">📘 Requisitos de ingreso</button>
+            <button class="btn btn-suggest text-start py-2 px-3 border-danger-subtle" onclick="quickSearch('Ver malla curricular')">🎓 Ver malla curricular</button>
+            <button class="btn btn-suggest text-start py-2 px-3 border-danger-subtle" onclick="quickSearch('Fecha de inicio de clases')">📅 Fecha de inicio de clases</button>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  #chatRoot table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 0.85rem;
+  }
+  #chatRoot th, #chatRoot td {
+    border: 1px solid #dee2e6;
+    padding: 8px;
+  }
+  #chatRoot th {
+    background-color: #f8f9fa;
+  }
+  .bot-message {
+    background-color: #fff5f5;
+    border-left: 4px solid #dc3545;
+  }
+  .user-message {
+    background-color: #f0f7ff;
+    border-right: 4px solid #0d6efd;
+    text-align: right;
+  }
+</style>
+
+<script>
+const chatRoot = document.getElementById("chatRoot");
+const chatInput = document.getElementById("chatInput");
+const sendBtn = document.getElementById("sendBtn");
+const chatContainer = document.getElementById("chat-container");
+
+sendBtn.addEventListener("click", () => sendMessage());
+chatInput.addEventListener("keypress", (e) => { if(e.key === 'Enter') sendMessage(); });
+
+// Función para sugerencias rápidas
+function quickSearch(text) {
+    chatInput.value = text;
+    sendMessage();
+}
+
+function appendMessage(sender, msg) {
+  const div = document.createElement("div");
+  div.className = "mb-3 p-3 rounded shadow-sm " + (sender === "Tú" ? "user-message ms-5" : "bot-message me-5");
+  
+  if (sender === "Bot") {
+      // Usamos marked.parse para que el Bot pueda mostrar tablas y listas
+      div.innerHTML = `<strong>${sender}:</strong> <div class="mt-1">${marked.parse(msg)}</div>`;
+  } else {
+      div.innerHTML = `<strong>${sender}:</strong> <div class="mt-1">${msg}</div>`;
+  }
+  
+  chatRoot.appendChild(div);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+function sendMessage() {
+  const message = chatInput.value.trim();
+  if (!message) return;
+  appendMessage("Tú", message);
+  chatInput.value = "";
+
+  // Mostrar indicador de carga
+  const loading = document.createElement("div");
+  loading.id = "bot-loading";
+  loading.className = "text-muted small mb-3";
+  loading.innerHTML = "<em>El bot está escribiendo...</em>";
+  chatRoot.appendChild(loading);
+
+  fetch("{% url 'chatbot_api' %}", {
+    method: "POST",
+    headers: { 
+        "Content-Type": "application/json",
+        "X-CSRFToken": "{{ csrf_token }}" // Añadido para evitar errores 403 en Django
+    },
+    body: JSON.stringify({ message })
+  })
+  .then(res => res.json())
+  .then(data => {
+    const loadingElem = document.getElementById("bot-loading");
+    if(loadingElem) loadingElem.remove();
+    appendMessage("Bot", data.reply || data.respuesta); // Soporta ambos nombres de clave
+  })
+  .catch(() => {
+    const loadingElem = document.getElementById("bot-loading");
+    if(loadingElem) loadingElem.remove();
+    appendMessage("Bot", "❌ Error de conexión al servidor");
+  });
+}
+</script>
+
+{% endblock %}

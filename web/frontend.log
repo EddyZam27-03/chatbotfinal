@@ -1,0 +1,13 @@
+
+> @figma/my-make-file@0.0.1 dev
+> vite
+
+
+  VITE v6.3.5  ready in 329 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+13:04:15 [vite] (client) hmr update /src/styles/index.css, /src/app/components/chatbot/ChatbotWidget.tsx
+13:06:30 [vite] (client) hmr update /src/app/components/chatbot/ChatbotWidget.tsx, /src/styles/index.css
+13:10:05 [vite] (client) hmr update /src/app/components/chatbot/ChatbotWidget.tsx, /src/styles/index.css
+13:30:23 [vite] (client) hmr update /src/app/components/chatbot/ChatbotWidget.tsx, /src/styles/index.css

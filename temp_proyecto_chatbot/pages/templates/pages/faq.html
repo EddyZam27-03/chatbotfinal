@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Preguntas frecuentes — Chatbot ULEAM{% endblock %}
+{% block content %}
+<h2>Preguntas frecuentes</h2>
+<div class="accordion mt-4" id="faq">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="q1">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+        ¿Qué información proporciona el chatbot?
+      </button>
+    </h2>
+    <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+      <div class="accordion-body">
+        Ofrece información sobre la carrera, admisiones, requisitos, perfil y contactos oficiales.
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

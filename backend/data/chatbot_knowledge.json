@@ -1,0 +1,168 @@
+[
+  {
+    "id": "9d3ee582-04d0-407d-9ce9-3e343beda8b7",
+    "keywords": [
+      "matricula",
+      "matricular",
+      "inscripcion",
+      "inscribir",
+      "registro",
+      "registrar"
+    ],
+    "respuesta": "Para **matricularte** en la ULEAM Extensión El Carmen necesitas:\n\n📋 **Documentos requeridos:**\n- Título de bachiller o acta de grado\n- Cédula de identidad\n- Puntaje SENESCYT vigente\n- Certificado de votación\n- 2 fotos tamaño carnet\n\n📍 Preséntate en secretaría de lunes a viernes de 8:00 AM a 6:00 PM.",
+    "categoria": "Matrícula",
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.729096+00:00",
+    "updated_at": "2026-06-05T18:21:59.729100+00:00"
+  },
+  {
+    "id": "3433bd5e-3ada-477f-b570-3a0ca310272e",
+    "keywords": [
+      "requisito",
+      "ingreso",
+      "admision",
+      "ingresar",
+      "postular"
+    ],
+    "respuesta": "Los **requisitos de admisión** para la ULEAM son:\n\n✅ Bachillerato completo\n✅ Cédula de identidad vigente\n✅ Puntaje SENESCYT\n✅ Certificado de votación\n✅ 2 fotografías carnet fondo blanco\n\nEl proceso de admisión se abre dos veces al año. Consulta las fechas en nuestras [noticias](/noticias).",
+    "categoria": "Admisión",
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.729105+00:00",
+    "updated_at": "2026-06-05T18:21:59.729106+00:00"
+  },
+  {
+    "id": "99d9c910-b84a-48a7-8086-fd3bed4cc502",
+    "keywords": [
+      "malla",
+      "materias",
+      "plan",
+      "pensum",
+      "asignaturas",
+      "curriculum"
+    ],
+    "respuesta": "La **malla curricular** de Administración de Empresas incluye:\n\n📚 **Área Básica (1-2 semestre):**\n- Matemáticas, Estadística, Comunicación\n\n📚 **Área Profesional (3-8 semestre):**\n- Administración, Finanzas, Marketing, RRHH\n\n📚 **Área de Especialización (9-10 semestre):**\n- Optativas según tu perfil profesional\n\nDescarga la malla completa en nuestra sección de [Documentos](/documentos).",
+    "categoria": "Malla Curricular",
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.729111+00:00",
+    "updated_at": "2026-06-05T18:21:59.729112+00:00"
+  },
+  {
+    "id": "02f5498d-19aa-4bb0-b91d-e2a12a6c82b9",
+    "keywords": [
+      "costo",
+      "precio",
+      "pagar",
+      "arancel",
+      "cuanto",
+      "valor",
+      "gratuito"
+    ],
+    "respuesta": "La ULEAM es una **universidad pública**, por lo que la educación es gratuita para los estudiantes regulares.\n\n💰 **Costos administrativos aproximados:**\n- Derecho de matrícula: $25 USD\n- Seguro estudiantil: $15 USD\n\nPara información exacta y actualizada, consulta en secretaría o revisa los [Aranceles oficiales](/documentos).",
+    "categoria": "Costos",
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.729117+00:00",
+    "updated_at": "2026-06-05T18:21:59.729118+00:00"
+  },
+  {
+    "id": "89bb85fc-6f05-4f44-8f65-eedd964bf956",
+    "keywords": [
+      "contacto",
+      "telefono",
+      "correo",
+      "email",
+      "direccion",
+      "donde",
+      "ubicacion"
+    ],
+    "respuesta": "📍 **ULEAM Extensión El Carmen**\n\n**Dirección:** Av. Universitaria s/n, El Carmen, Manabí, Ecuador\n\n📞 **Teléfono:** (05) 276-xxxx\n\n📧 **Email:** extensionelcarmen@uleam.edu.ec\n\n🕐 **Horario de atención:**\nLunes a Viernes: 8:00 AM – 12:30 PM y 2:30 PM – 6:00 PM\nSábados: 8:00 AM – 12:00 PM",
+    "categoria": "Contacto",
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.729122+00:00",
+    "updated_at": "2026-06-05T18:21:59.729124+00:00"
+  },
+  {
+    "id": "saludo-1",
+    "keywords": [
+      "hola",
+      "buenos dias",
+      "buenas tardes",
+      "buenas noches",
+      "saludos",
+      "hey",
+      "hi"
+    ],
+    "respuesta": "¡Hola! 👋 Soy tu **Asistente Académico** de ULEAM El Carmen. Puedo ayudarte con información sobre:\n\n📚 **Admisión y requisitos de ingreso**\n📋 **Matrícula y procesos de inscripción**\n📖 **Malla curricular y materias**\n💰 **Costos y aranceles**\n📞 **Información de contacto**\n\n¿En qué puedo ayudarte hoy?",
+    "categoria": "Saludo",
+    "activo": true,
+    "created_at": "2026-06-06T18:00:00.000000+00:00",
+    "updated_at": "2026-06-06T18:00:00.000000+00:00"
+  },
+  {
+    "id": "carrera-1",
+    "keywords": [
+      "carrera",
+      "administracion",
+      "administracion de empresas",
+      "que estudian",
+      "carreras",
+      "oferta"
+    ],
+    "respuesta": "La **Carrera de Administración de Empresas** en ULEAM El Carmen te prepara para:\n\n🎯 **Perfil profesional:**\n- Gestionar y dirigir organizaciones\n- Planificar estrategias empresariales\n- Analizar mercados y finanzas\n- Liderar equipos de trabajo\n\n⏱️ **Duración:** 10 semestres (5 años)\n\n📚 **Áreas de estudio:**\n- Administración general\n- Finanzas y contabilidad\n- Marketing y ventas\n- Recursos humanos\n\n¿Te gustaría saber más sobre la malla curricular?",
+    "categoria": "Carrera",
+    "activo": true,
+    "created_at": "2026-06-06T18:00:00.000000+00:00",
+    "updated_at": "2026-06-06T18:00:00.000000+00:00"
+  },
+  {
+    "id": "horario-1",
+    "keywords": [
+      "horario",
+      "horarios",
+      "clases",
+      "cuando",
+      "turno",
+      "nocturno",
+      "diurno"
+    ],
+    "respuesta": "🕐 **Horarios de clases** en ULEAM El Carmen:\n\n📅 **Modalidad Diurna:**\n- Lunes a Viernes: 7:00 AM – 1:00 PM\n\n📅 **Modalidad Nocturna:**\n- Lunes a Viernes: 5:00 PM – 9:00 PM\n\n📅 **Sábados:**\n- 8:00 AM – 1:00 PM (según disponibilidad)\n\nLos horarios exactos pueden variar según el semestre y las materias. Consulta tu horario en secretaría.",
+    "categoria": "Horarios",
+    "activo": true,
+    "created_at": "2026-06-06T18:00:00.000000+00:00",
+    "updated_at": "2026-06-06T18:00:00.000000+00:00"
+  },
+  {
+    "id": "docentes-1",
+    "keywords": [
+      "docente",
+      "profesor",
+      "maestro",
+      "catedratico",
+      "profesores",
+      "docentes",
+      "quienes"
+    ],
+    "respuesta": "Nuestro cuerpo docente está conformado por profesionales con amplia experiencia en:\n\n👨‍🏫 **Áreas de especialización:**\n- Administración y gestión empresarial\n- Finanzas y contabilidad\n- Marketing y comercio\n- Recursos humanos\n- Derecho empresarial\n\nPuedes conocer a nuestros docentes visitando la sección de [Docentes](/docentes) en nuestra página web.",
+    "categoria": "Docentes",
+    "activo": true,
+    "created_at": "2026-06-06T18:00:00.000000+00:00",
+    "updated_at": "2026-06-06T18:00:00.000000+00:00"
+  },
+  {
+    "id": "ayuda-1",
+    "keywords": [
+      "ayuda",
+      "soporte",
+      "asistencia",
+      "problema",
+      "duda",
+      "pregunta",
+      "que puedes hacer",
+      "funciones"
+    ],
+    "respuesta": "Puedo ayudarte con información sobre:\n\n📚 **Procesos académicos:**\n- Requisitos de admisión\n- Matrícula e inscripción\n- Malla curricular\n\n💰 **Información administrativa:**\n- Costos y aranceles\n- Documentos requeridos\n\n📞 **Información general:**\n- Horarios de atención\n- Contacto y ubicación\n- Información sobre docentes\n\nSi tienes una pregunta específica, ¡escríbela y te ayudaré!",
+    "categoria": "Ayuda",
+    "activo": true,
+    "created_at": "2026-06-06T18:00:00.000000+00:00",
+    "updated_at": "2026-06-06T18:00:00.000000+00:00"
+  }
+]

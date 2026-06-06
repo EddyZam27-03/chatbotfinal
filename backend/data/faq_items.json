@@ -1,0 +1,52 @@
+[
+  {
+    "id": "5a74f6c6-a39b-4f11-b280-e05d79730fbc",
+    "pregunta": "¿Cuáles son los requisitos para ingresar a la carrera?",
+    "respuesta": "Para ingresar a la carrera de Administración de Empresas necesitas:\n\n- **Bachillerato completo** (título de bachiller o acta de grado)\n- **Cédula de identidad** vigente\n- **Certificado de votación** (si aplica)\n- **Puntaje SENESCYT** vigente\n- **2 fotografías** tamaño carnet en fondo blanco\n\nPresentar la documentación original y una copia en secretaría.",
+    "categoria": "Admisión",
+    "orden": 1,
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.728917+00:00",
+    "updated_at": "2026-06-05T18:21:59.728921+00:00"
+  },
+  {
+    "id": "999f78db-07f7-478c-ad45-f439be543572",
+    "pregunta": "¿Cuál es el costo de la matrícula?",
+    "respuesta": "La ULEAM es una institución de educación superior pública, por lo tanto **la matrícula es gratuita** para todos los estudiantes regulares.\n\nSin embargo, existen algunos costos administrativos mínimos:\n- Derecho de matrícula: $25 USD\n- Seguro estudiantil: $15 USD\n- Materiales de laboratorio (si aplica): variable\n\nPara información actualizada sobre aranceles, consulta en secretaría.",
+    "categoria": "Pagos",
+    "orden": 2,
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.728926+00:00",
+    "updated_at": "2026-06-05T18:21:59.728928+00:00"
+  },
+  {
+    "id": "2e3c5742-0e55-4657-8d7a-4bf48f98197c",
+    "pregunta": "¿Cuánto dura la carrera de Administración de Empresas?",
+    "respuesta": "La carrera de **Administración de Empresas** tiene una duración de:\n\n- **8 semestres** (4 años) para obtener el título de Tecnólogo\n- **10 semestres** (5 años) para obtener la Licenciatura\n\nMás el tiempo dedicado al trabajo de titulación y prácticas preprofesionales.\n\nEl plan de estudios incluye materias de formación básica, profesional y optativas de especialización.",
+    "categoria": "Académico",
+    "orden": 3,
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.728932+00:00",
+    "updated_at": "2026-06-05T18:21:59.728933+00:00"
+  },
+  {
+    "id": "eb2631eb-a5c7-4f8e-b6ee-c448c43c9849",
+    "pregunta": "¿Cuáles son los horarios de atención en secretaría?",
+    "respuesta": "La secretaría de la ULEAM Extensión El Carmen atiende:\n\n📅 **Lunes a Viernes:**\n- Mañana: 8:00 AM – 12:30 PM\n- Tarde: 2:30 PM – 6:00 PM\n\n📅 **Sábados:** 8:00 AM – 12:00 PM\n\n📍 **Ubicación:** Av. Universitaria, El Carmen, Manabí\n📞 **Teléfono:** (05) 276-xxxx",
+    "categoria": "Horarios",
+    "orden": 4,
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.728938+00:00",
+    "updated_at": "2026-06-05T18:21:59.728939+00:00"
+  },
+  {
+    "id": "e9a47d1f-0c3d-40c4-9c42-4860fbcb7cf4",
+    "pregunta": "¿Cómo puedo obtener mi certificado de matrícula?",
+    "respuesta": "Para obtener tu certificado de matrícula:\n\n1. Acércate a **secretaría** con tu cédula de identidad\n2. Solicita el certificado indicando el período académico\n3. El trámite demora **1 a 2 días hábiles**\n4. El costo es de **$2 USD** por certificado\n\nTambién puedes solicitarlo por correo a: secretaria.elcarmen@uleam.edu.ec",
+    "categoria": "Trámites",
+    "orden": 5,
+    "activo": true,
+    "created_at": "2026-06-05T18:21:59.728943+00:00",
+    "updated_at": "2026-06-05T18:21:59.728944+00:00"
+  }
+]

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Detener ULEAM Chatbot
+Comment=Detiene el backend y frontend del sistema ULEAM Chatbot
+Exec=/home/valhalla/Descargas/Chat (3)/stop.sh
+Icon=process-stop
+Terminal=true
+Categories=System;

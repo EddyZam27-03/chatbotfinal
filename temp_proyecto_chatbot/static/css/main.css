@@ -1,0 +1,174 @@
+/* ================================
+   GLOBAL
+================================ */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   NAVBAR
+================================ */
+#mainNav {
+  background: transparent;
+  transition: 0.4s ease-in-out;
+}
+
+#mainNav.scrolled {
+  background: rgba(236, 50, 55, 0.92); /* Rojo institucional */
+  backdrop-filter: blur(8px);
+}
+
+/* ================================
+   HERO SECTION (ajustado)
+================================ */
+.hero-section {
+  height: 90vh;          /* un poco más bajo para imágenes cuadradas */
+  position: relative;
+
+  /* MUCHÍSIMO MÁS CLARO → degradado casi imperceptible */
+  background-image:
+    linear-gradient(to bottom, rgba(236,50,55,0.15), rgba(0,0,0,0.35)),
+    url("/static/img/Baner.png");
+
+  /* 🔥 Ajuste PRO para imágenes cuadradas */
+  background-size: auto 100%;        /* altura completa, ancho automático */
+  background-position: 10% center;   /* ← Movido hacia la derecha */
+  background-repeat: no-repeat;
+
+  /* elimina todos los bug visuales */
+  background-attachment: scroll;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.55);
+}
+
+
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.btn-danger {
+  background-color: #EC3237 !important;
+  border-color: #EC3237 !important;
+}
+
+.btn-danger:hover {
+  background-color: #c42b30 !important;
+  border-color: #c42b30 !important;
+}
+
+.text-danger {
+  color: #EC3237 !important;
+}
+
+/* ================================
+   SERVICE CARDS
+================================ */
+.service-card {
+  border-radius: 14px;
+  transition: 0.25s ease;
+  background: #fff;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 28px rgba(0,0,0,0.15);
+}
+
+/* ================================
+   FOOTER
+================================ */
+.footer-site {
+  background: #111;
+  color: white;
+}
+/* HERO DEL CHATBOT (solo imagen) */
+.chat-hero {
+  height: 55vh;
+  background-image:
+    linear-gradient(to bottom, rgba(236,50,55,0.15), rgba(0,0,0,0.40)),
+    url("/static/img/fondochat.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Banda del título debajo del hero */
+.chat-title-strip {
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.chat-title-text {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #EC3237;
+  margin: 0;
+}
+
+
+/* ================================
+   SECCIÓN PRINCIPAL DEL CHAT
+================================ */
+.chat-content {
+  background: #f7f7f7;
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+
+
+/* Paneles laterales */
+.chat-sidebar {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* Chat card */
+.chat-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+}
+
+.chat-card .card-body {
+  background: white;
+}
+
+.chat-card .card-footer {
+  background: #fafafa;
+}
+
+.chat-title {
+  color: #EC3237;
+  font-weight: 700;
+}
+
+.btn-suggest {
+  border-color: #EC3237 !important;
+  color: #EC3237 !important;
+}
+
+.btn-suggest:hover {
+  background: #EC323710;
+}
+
