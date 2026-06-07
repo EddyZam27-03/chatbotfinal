@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { User, Mail, Search, GraduationCap, BookOpen } from 'lucide-react';
 import { docentesService, type Docente } from '../../services/docentesService';
-import { buildImageUrl } from '../../stores/dataStore';
+import { buildImageUrl } from '../../utils/imageUtils';
 
 export function Docentes() {
   const [docentes, setDocentes] = useState<Docente[]>([]);

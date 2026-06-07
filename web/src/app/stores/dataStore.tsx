@@ -100,17 +100,6 @@ export interface DataStore {
 }
 
 // ===================================
-// HELPER: Build Image URL
-// ===================================
-const API_BASE = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000';
-
-export function buildImageUrl(path: string | null | undefined): string {
-  if (!path) return '';
-  if (path.startsWith('http')) return path;
-  return `${API_BASE}/${path}`;
-}
-
-// ===================================
 // CONTEXT
 // ===================================
 const DataStoreContext = createContext<DataStore | null>(null);
@@ -127,17 +116,12 @@ export function DataStoreProvider({ children }: { children: ReactNode }) {
     const cargarDatos = async () => {
       setLoading(true);
       try {
-        const token = localStorage.getItem('uleam-admin-auth');
-
-        const [noticiasRes, docentesRes, documentosRes, faqsRes, chatbotRes] =
+        const [noticiasRes, docentesRes, documentosRes, faqsRes] =
           await Promise.allSettled([
             fetch(`${ENDPOINTS.NOTICIAS}?limit=100`).then(r => r.json()),
             fetch(`${ENDPOINTS.DOCENTES}?limit=100`).then(r => r.json()),
             fetch(`${ENDPOINTS.DOCUMENTOS}?limit=100`).then(r => r.json()),
             fetch(`${ENDPOINTS.FAQ}?limit=100`).then(r => r.json()),
-            fetch(ENDPOINTS.ADMIN_CHATBOT, {
-              headers: token ? { Authorization: `Bearer ${token}` } : {},
-            }).then(r => r.json()).catch(() => ({ success: false })),
           ]);
 
         if (noticiasRes.status === 'fulfilled' && noticiasRes.value?.success) {
@@ -151,15 +135,6 @@ export function DataStoreProvider({ children }: { children: ReactNode }) {
         }
         if (faqsRes.status === 'fulfilled' && faqsRes.value?.success) {
           setFaqs(faqsRes.value.data?.items || []);
-        }
-        if (chatbotRes.status === 'fulfilled' && chatbotRes.value?.success) {
-          const items = chatbotRes.value.data?.items || [];
-          setChatbotKnowledge(items.map((item: any) => ({
-            id: item.id,
-            keywords: item.keywords,
-            response: item.respuesta,
-            category: item.categoria,
-          })));
         }
       } catch (e) {
         console.error('Error cargando datos desde la API:', e);

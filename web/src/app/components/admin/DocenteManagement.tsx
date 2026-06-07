@@ -3,7 +3,7 @@ import { AdminLayout } from './AdminLayout';
 import { Plus, Search, Trash2, Edit2, User, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { docentesService, type Docente } from '../../services/docentesService';
-import { buildImageUrl } from '../../stores/dataStore';
+import { buildImageUrl } from '../../utils/imageUtils';
 
 export function DocenteManagement() {
   const navigate = useNavigate();

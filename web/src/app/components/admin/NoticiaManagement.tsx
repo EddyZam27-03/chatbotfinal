@@ -3,7 +3,7 @@ import { AdminLayout } from './AdminLayout';
 import { Plus, Search, Trash2, Edit2, Newspaper, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { noticiasService, type Noticia } from '../../services/noticiasService';
-import { buildImageUrl } from '../../stores/dataStore';
+import { buildImageUrl } from '../../utils/imageUtils';
 
 export function NoticiaManagement() {
   const navigate = useNavigate();

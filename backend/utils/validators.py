@@ -112,7 +112,7 @@ def save_file(content: bytes, folder: Path, filename: str) -> str:
 
     Returns:
         URL relativa del archivo guardado.
-        Ejemplo: '/uploads/noticias/uuid.jpg'
+        Ejemplo: 'uploads/noticias/uuid.jpg'
     """
     folder.mkdir(parents=True, exist_ok=True)
     file_path = folder / filename
@@ -120,9 +120,17 @@ def save_file(content: bytes, folder: Path, filename: str) -> str:
     with open(file_path, "wb") as f:
         f.write(content)
 
-    # Retorna URL relativa que el frontend usará
-    relative_path = str(file_path).replace(".", "", 1).replace("\\", "/")
-    return relative_path
+    # Retorna URL relativa que el frontend usará (sin slash inicial)
+    # Convertir ruta absoluta a relativa desde el directorio de trabajo
+    import os
+    cwd = Path.cwd()
+    try:
+        relative_path = file_path.relative_to(cwd)
+    except ValueError:
+        # Si file_path no está dentro de cwd, usar el nombre del archivo
+        relative_path = Path(file_path.name)
+    
+    return str(relative_path).replace("\\", "/")
 
 
 def delete_file(file_url: str) -> bool:

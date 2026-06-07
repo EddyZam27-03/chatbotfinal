@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Newspaper, Calendar, Search, ArrowRight, Clock, Tag } from 'lucide-react';
 import { noticiasService, type Noticia } from '../../services/noticiasService';
-import { buildImageUrl } from '../../stores/dataStore';
+import { buildImageUrl } from '../../utils/imageUtils';
 
 export function Noticias() {
   const navigate = useNavigate();

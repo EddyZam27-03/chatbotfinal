@@ -168,6 +168,9 @@ async def admin_crear_noticia(
     if imagen and imagen.filename:
         content = await validate_image(imagen)
         extension = Path(imagen.filename).suffix.lower()
+        # Asegurar que la extensión tenga el punto
+        if not extension.startswith('.'):
+            extension = f".{extension}"
         filename = f"{noticia_id}{extension}"
         imagen_url = save_file(content, settings.UPLOADS_NOTICIAS, filename)
 
@@ -240,6 +243,9 @@ async def admin_actualizar_noticia(
         if noticia.get("imagen_url"):
             delete_file(noticia["imagen_url"])
         extension = Path(imagen.filename).suffix.lower()
+        # Asegurar que la extensión tenga el punto
+        if not extension.startswith('.'):
+            extension = f".{extension}"
         filename = f"{noticia_id}{extension}"
         updates["imagen_url"] = save_file(content, settings.UPLOADS_NOTICIAS, filename)
 

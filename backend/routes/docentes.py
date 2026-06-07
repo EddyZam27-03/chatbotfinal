@@ -115,6 +115,9 @@ async def admin_crear_docente(
     if foto and foto.filename:
         content = await validate_image(foto)
         extension = Path(foto.filename).suffix.lower()
+        # Asegurar que la extensión tenga el punto
+        if not extension.startswith('.'):
+            extension = f".{extension}"
         filename = f"{docente_id}{extension}"
         foto_url = save_file(content, settings.UPLOADS_DOCENTES, filename)
 
@@ -169,6 +172,9 @@ async def admin_actualizar_docente(
         if docente.get("foto_url"):
             delete_file(docente["foto_url"])
         extension = Path(foto.filename).suffix.lower()
+        # Asegurar que la extensión tenga el punto
+        if not extension.startswith('.'):
+            extension = f".{extension}"
         filename = f"{docente_id}{extension}"
         updates["foto_url"] = save_file(content, settings.UPLOADS_DOCENTES, filename)
 
