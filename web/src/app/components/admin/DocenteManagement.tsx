@@ -3,6 +3,7 @@ import { AdminLayout } from './AdminLayout';
 import { Plus, Search, Trash2, Edit2, User, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { docentesService, type Docente } from '../../services/docentesService';
+import { buildImageUrl } from '../../stores/dataStore';
 
 export function DocenteManagement() {
   const navigate = useNavigate();
@@ -267,7 +268,7 @@ export function DocenteManagement() {
                           <td className="px-4 py-3">
                             {docente.foto_url ? (
                               <img
-                                src={docente.foto_url}
+                                src={buildImageUrl(docente.foto_url)}
                                 alt={docente.nombre}
                                 className="w-10 h-10 rounded-full object-cover"
                                 onError={(e) => {

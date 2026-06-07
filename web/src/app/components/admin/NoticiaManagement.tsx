@@ -3,6 +3,7 @@ import { AdminLayout } from './AdminLayout';
 import { Plus, Search, Trash2, Edit2, Newspaper, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { noticiasService, type Noticia } from '../../services/noticiasService';
+import { buildImageUrl } from '../../stores/dataStore';
 
 export function NoticiaManagement() {
   const navigate = useNavigate();
@@ -274,7 +275,7 @@ export function NoticiaManagement() {
                           <td className="px-4 py-3">
                             {noticia.imagen_url ? (
                               <img
-                                src={noticia.imagen_url}
+                                src={buildImageUrl(noticia.imagen_url)}
                                 alt={noticia.titulo}
                                 className="w-20 h-12 rounded object-cover"
                                 onError={(e) => {

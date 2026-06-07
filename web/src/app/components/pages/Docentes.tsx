@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { User, Mail, Search, GraduationCap, BookOpen } from 'lucide-react';
 import { docentesService, type Docente } from '../../services/docentesService';
+import { buildImageUrl } from '../../stores/dataStore';
 
 export function Docentes() {
   const [docentes, setDocentes] = useState<Docente[]>([]);
@@ -139,7 +140,7 @@ export function Docentes() {
                     <div className="relative">
                       {docente.foto_url ? (
                         <img
-                          src={docente.foto_url}
+                          src={buildImageUrl(docente.foto_url)}
                           alt={docente.nombre}
                           className="w-32 h-32 rounded-full object-cover border-4"
                           style={{ borderColor: 'var(--uleam-primary)' }}

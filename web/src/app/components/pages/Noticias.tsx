@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Newspaper, Calendar, Search, ArrowRight, Clock, Tag } from 'lucide-react';
 import { noticiasService, type Noticia } from '../../services/noticiasService';
+import { buildImageUrl } from '../../stores/dataStore';
 
 export function Noticias() {
   const navigate = useNavigate();
@@ -160,7 +161,7 @@ export function Noticias() {
                   <div className="relative h-64 md:h-auto">
                     {filteredNoticias[0].imagen_url ? (
                       <img
-                        src={filteredNoticias[0].imagen_url}
+                        src={buildImageUrl(filteredNoticias[0].imagen_url)}
                         alt={filteredNoticias[0].titulo}
                         className="w-full h-full object-cover"
                         onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
@@ -230,7 +231,7 @@ export function Noticias() {
                     <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
                       {noticia.imagen_url ? (
                         <img
-                          src={noticia.imagen_url}
+                          src={buildImageUrl(noticia.imagen_url)}
                           alt={noticia.titulo}
                           className="w-full h-full object-cover transition-transform hover:scale-105"
                           onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
